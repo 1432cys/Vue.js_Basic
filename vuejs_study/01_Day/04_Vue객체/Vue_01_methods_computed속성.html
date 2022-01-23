@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!--CDN-->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+</head>
+<body>
+    
+    <div id="app">
+        Data : {{ num }}<br>
+        method호출 : {{fun1()}}{{fun1()}}<br>
+        computed호출 : {{fun2}}{{fun2}}<br>
+    </div>
+
+    <script>
+        let model = {
+            num:0
+         
+        }
+        var app = new Vue({
+            el: '#app',
+            data: model,
+            //methods는 기본적으로 함수명() 형식으로 호출
+            //methods는 기본적으로 호출할때마다 매번 실행(캐시기능없음)
+            methods:{
+                fun1(){
+                    console.log("methods.fun1");
+                    return "fun1";
+                }            
+           
+            },
+            //computed는 기본적으로 함수명만 지정하는 형식으로 호출
+            //computed는 기본적으로 한번만 호출(캐시기능있음)
+            computed:{     
+                fun2(){
+                    console.log("computed.fun1");
+                    return model.num;
+                }
+            },   
+        })
+
+        console.log("el",app.$el);
+    </script>
+    
+</body>
+</html>

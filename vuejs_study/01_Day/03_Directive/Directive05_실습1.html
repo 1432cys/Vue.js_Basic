@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!--CDN-->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+</head>
+<body>
+    
+    <div id="app">
+        다음과 같은 조건을 만족하는 어플리케이션을 구현하시오.<br>
+        <br>
+        조건1: 이름은 '3글자 이상'<br>
+        조건2: 나이는 '10세 이상이고 120세 이하'<br>
+        <br><br>
+        <div>
+            처음 실행시 화면<br>
+            이름을 입력하세요<input v-model="name"/>
+            <span v-if="name.length < 3">이름은 3글자 이상입니다.</span><br>
+            나이를 입력하세요<input v-model="age"/>
+            <span v-if="age < 10 || age > 120">나이는 10세 이상, 120 이하만 가능합니다.</span><br>
+        </div>
+    </div>
+
+    <script>
+        let model = {
+            name:'',
+            age:''
+         
+        }
+        var app = new Vue({
+            el: '#app',
+            data: model   
+        })
+
+        console.log("el",app.$el);
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        class Person{
+
+            constructor(name, age){
+                this.name = name;
+                this.age = age;
+            }
+        }
+
+        class Man extends Person{
+            constructor(name, age, address){
+                super(name, age);
+                //this.name = name;
+                //this.age = age;
+                this.address  = address;
+            }
+        }
+        var m = new Man("홍길동",20,"서울");
+
+        console.log(m);
+     
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

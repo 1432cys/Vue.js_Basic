@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!--CDN-->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+</head>
+<body>
+    
+    <div id="app">
+        <child-component msg="hello">
+            <template>
+                <ul>
+                    <li>A1</li>
+                    <li>A2</li>
+                    <li>A3</li>
+                </ul>
+            </template>
+        </child-component>
+    </div> 
+    <template id="child-template">
+        <div>
+            <h1>CHILD</h1>
+            {{msg}}
+            <slot></slot>
+        </div>
+    </template>
+    <script>
+        //자식 컴포넌트
+        const Child = Vue.component('child-component',{
+            template: '#child-template',
+            props:['msg'],
+            methods:{
+                getMsg(){
+                    console.log(this.msg);
+                }
+            }
+        });
+        let model = {
+            message : 'hi'
+        }
+        var app = new Vue({
+            el: '#app',
+            data : model,
+            
+        });
+
+    </script>
+    
+</body>
+</html>

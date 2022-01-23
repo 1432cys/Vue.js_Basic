@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!--CDN-->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+</head>
+<body>
+    
+    <div id="app">
+        <h1>1. 기본적인함수호출</h1><br>
+        {{username.toUpperCase()}}<br>
+        <hr>
+        <h1>2. 필터적용</h1><br>
+        {{username|toUpper}}<br>
+        {{username|toUpper|toSlice}}<br>
+        <hr>
+        {{username}}
+    </div>
+
+    <script>
+        var app = new Vue({
+            el: '#app',
+            data: {
+                username:"honggildong",     
+            },
+            filters:{
+                toUpper(v){
+                    return v.toUpperCase();
+                },
+                toSlice(v){
+                    return v.substr(0,3);
+                }
+            }
+ 
+        })
+
+       // console.log("el",app.$el);
+    </script>
+    
+</body>
+</html>
